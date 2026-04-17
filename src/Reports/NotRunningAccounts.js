@@ -130,7 +130,7 @@ const NotRunningAccounts = ({ pendingLoans, date, company, isPrinting, lineman, 
 
     return (
       <Fragment>
-        <div style={{ paddingLeft: "32px", display: "flex", alignItems: "center" }} className='mt-2'>
+        <div style={{ paddingLeft: "32px", display: "flex", alignItems: "center", justifyContent: "space-between" }} className='mt-2'>
           <div className='col-sm-6 fixed mt-3' >
             <h4>{(company)}</h4>
           </div>
@@ -141,6 +141,7 @@ const NotRunningAccounts = ({ pendingLoans, date, company, isPrinting, lineman, 
             <div className='col-sm-6 fixed mt-3'>{t('customer') + " : " + first.linemanname}</div>
             <div className='col-sm-2 fixed mt-3'>{t('line') + " : " + (pendingLoans.length > 0 ? first.lineno : "")}</div>
             <div className='col-sm-2 fixed mt-3'>{t("date") + " : " + dateFormatdd(date)}</div>
+            <div className='col-sm-2 fixed mt-3'>{t('page')} {page} / {totalPages}</div>
           </div>}
         <Table className='table table-bordered border-dark linecheckingtable' style={{ margin: 0, padding: 0, width: "103%" }}  >
           <thead>
