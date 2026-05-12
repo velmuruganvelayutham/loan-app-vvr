@@ -129,7 +129,7 @@ const ListLineChecking = ({ pendingLoans, date, company, isPrinting, bookno, lin
     return (
       <Fragment >
 
-        <div style={{ display: "flex", alignItems: "center", paddingTop: page === 1 ? "5px" : "19px" }} className='linechecking-print-margin'>
+        <div style={{ display: "flex", alignItems: "center", paddingTop: page === 1 ? "0px" : "19px", marginBottom: "3px" }} className='linechecking-print-margin'>
           <div className='col-sm-6 fixed' >
             <h4>{(company)}</h4>
           </div>
@@ -256,7 +256,7 @@ const ListLineChecking = ({ pendingLoans, date, company, isPrinting, bookno, lin
                       <td style={{ fontSize: "11px", width: "12%" }} className='text-nowrap overflow-hidden'>{customer.fathername}</td>
 
                       <td style={{ fontSize: "11px", overflow: "hidden" }} className='text-nowrap overflow-hidden'>  {bond ? customer.bond : customer.address}</td>
-                      {bond ? <td style={{ fontSize: "11px" }}>{customer.cheque}</td> : <td style={{ fontSize: "12px", wordWrap: "break-word", padding: "0px", margin: "0px" }}>{customer.mobileno}</td>}
+                      {bond ? <td style={{ fontSize: "11px" }}>{customer.cheque}</td> : <td style={{ fontSize: "12px", wordWrap: "break-word", padding: "0px", margin: "0px", whiteSpace: "normal", minHeight: customer.mobileno && customer.mobileno.toString().split('\n').length > 1 ? "auto" : "15px", maxHeight: customer.mobileno && customer.mobileno.toString().split('\n').length > 1 ? "60px" : "auto" }}>{customer.mobileno}</td>}
                       {bond && <td style={{ fontSize: "11px"}} className='text-nowrap overflow-hidden'>{customer.referencecity}</td>}
                       <td style={{ fontSize: "11px" }} className='text-nowrap overflow-hidden'>{dateFormatdd(customer.finisheddate)}</td>
                       <td style={{ fontSize: "11px", textAlign: "center" }} className='text-nowrap overflow-hidden'>{pending}</td>
@@ -322,7 +322,7 @@ const ListLineChecking = ({ pendingLoans, date, company, isPrinting, bookno, lin
           }
 
         </Table>
-        {!isLastPage && <div style={{ pageBreakAfter: "always" }} ><div style={{ paddingTop: "20px" }}></div></div>}
+        {!isLastPage && <div style={{ pageBreakAfter: "always" }} ></div>}
       </Fragment>
     );
   };

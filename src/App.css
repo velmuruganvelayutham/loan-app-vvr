@@ -339,11 +339,18 @@ Table.totalledgertable {
   white-space: nowrap;
 }
 
+
+
 @media print {
   * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    margin: 0 !important;
+    padding: 0 !important;
   }
 
   @page {
@@ -391,20 +398,54 @@ Table.totalledgertable {
   }
   table, tr, td {
     page-break-inside: avoid; /* Prevent splitting rows and tables */
-    
+  }
+
+  tbody tr {
+    page-break-inside: avoid;
+    page-break-after: auto;
+  }
+
+  thead {
+    display: table-header-group;
+  }
+
+  tfoot {
+    display: table-footer-group;
   }
   .disable-print * {
     display: none !important; /* Prevent printing */
   }
   .print-margin{
     margin-left:10px !important;
+    margin-top: 0 !important;
   }
   .totalledger-print-margin{
     margin-left:15px !important;
+    margin-top: 0 !important;
   }
   
   .linechecking-print-margin{
     margin-left:16px !important;
+    margin-top: 0 !important;
+    margin-bottom: 0px !important;
+    line-height: 1 !important;
+  }
+
+  .linechecking-print-margin .col-sm-3,
+  .linechecking-print-margin .col-sm-6,
+  .linechecking-print-margin .col-sm-2 {
+    padding: 0 !important;
+    margin: 0 !important;
+    line-height: 1 !important;
+  }
+
+  .linecheckingtable thead tr {
+    line-height: 1 !important;
+  }
+
+  .linecheckingtable thead th {
+    padding: 2px 1px !important;
+    line-height: 1.1 !important;
   }
   .chart-print-margin{
     margin-left: -19px !important;
